@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BromoRise – Unforgettable Mount Bromo Sunrise Experience</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --amber: #f5a623;
+    --amber-light: #f7c06a;
+    --dark: #1a1a1a;
+    --text: #333333;
+    --muted: #777;
+    --light-bg: #f9f8f6;
+    --white: #ffffff;
+    --border: #e8e5e0;
+    --radius: 16px;
+    --radius-sm: 10px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ─────────────────── NAVBAR ─────────────────── */
+  .navbar {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 48px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--white);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+  }
+
+  .logo-icon {
+    width: 28px; height: 28px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px solid rgba(255,255,255,0.5);
+  }
+
+  .logo-icon svg { width: 14px; height: 14px; fill: white; }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 50px;
+    padding: 6px 8px;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 400;
+    padding: 6px 16px;
+    border-radius: 50px;
+    transition: all 0.2s;
+  }
+
+  .nav-links a.active,
+  .nav-links a:hover {
+    background: rgba(255,255,255,0.25);
+    color: white;
+  }
+
+  .nav-book {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .btn-book-nav {
+    background: var(--white);
+    color: var(--dark);
+    padding: 9px 20px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+
+  .btn-book-nav:hover { background: #f0f0f0; }
+
+  .btn-book-nav .arrow-circle {
+    width: 22px; height: 22px;
+    background: var(--dark);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .btn-book-nav .arrow-circle svg { width: 10px; fill: white; }
+
+  /* ─────────────────── HERO ─────────────────── */
+  .hero {
+    position: relative;
+    height: 580px;
+    border-radius: 24px;
+    margin: 16px;
+    overflow: hidden;
+    background: linear-gradient(to bottom, rgba(20,30,40,0.3) 0%, rgba(10,20,30,0.55) 100%),
+      url('https://images.unsplash.com/photo-1596402184320-417e7178b2cd?w=1400&q=80') center/cover no-repeat;
+  }
+
+  .hero-content {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 40px 48px;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: rgba(255,255,255,0.8);
+    font-size: 12px;
+    margin-bottom: 16px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 5px 12px;
+    border-radius: 50px;
+    backdrop-filter: blur(8px);
+  }
+
+  .hero-badge svg { width: 12px; fill: rgba(255,255,255,0.7); }
+
+  .hero h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 52px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 0;
+    max-width: 540px;
+  }
+
+  /* ── floating cards on hero ── */
+  .hero-cards {
+    position: absolute;
+    bottom: 40px;
+    right: 48px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-end;
+  }
+
+  .hero-card {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 14px;
+    overflow: hidden;
+    color: white;
+  }
+
+  .hero-card-main {
+    width: 150px;
+  }
+
+  .hero-card-main .card-img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    display: block;
+    background: url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=300&q=80') center/cover;
+  }
+
+  .hero-card-main .card-info {
+    padding: 10px 12px;
+  }
+
+  .hero-card-main .card-info .card-tag {
+    font-size: 10px;
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+  }
+
+  .hero-card-main .card-info p {
+    font-size: 11.5px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  .hero-side-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero-side-card {
+    width: 110px;
+    height: 80px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .hero-side-card img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .hero-side-card-label {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.6));
+    padding: 16px 8px 6px;
+    font-size: 9px;
+    color: white;
+    font-weight: 500;
+  }
+
+  /* left bottom card with avatars */
+  .hero-left-card {
+    position: absolute;
+    bottom: 40px;
+    left: 48px;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 14px;
+    padding: 12px 16px;
+    color: white;
+    width: 200px;
+  }
+
+  .hero-left-card .avatars {
+    display: flex;
+    margin-bottom: 8px;
+  }
+
+  .hero-left-card .avatar {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.4);
+    margin-right: -8px;
+    object-fit: cover;
+    background: #888 url('') center/cover;
+  }
+
+  .hero-left-card .avatar:nth-child(1) { background-color: #c0845a; }
+  .hero-left-card .avatar:nth-child(2) { background-color: #7a9bc0; }
+  .hero-left-card .avatar:nth-child(3) { background-color: #a0b87a; }
+
+  .hero-left-card .name { font-size: 12px; font-weight: 600; margin-bottom: 2px; }
+  .hero-left-card .desc { font-size: 10px; color: rgba(255,255,255,0.65); line-height: 1.4; margin-bottom: 12px; }
+
+  .btn-book-hero {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: white;
+    color: var(--dark);
+    padding: 7px 14px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.2s;
+  }
+
+  .btn-book-hero .circle {
+    width: 18px; height: 18px;
+    background: var(--dark);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .btn-book-hero .circle svg { width: 8px; fill: white; }
+
+  /* ─────────────────── SECTION 2: Moments ─────────────────── */
+  .section {
+    padding: 80px 48px;
+  }
+
+  .section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+
+  .section-badge svg { width: 12px; }
+
+  .section-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--dark);
+    max-width: 520px;
+    margin-bottom: 14px;
+  }
+
+  .section-title em {
+    font-style: normal;
+    font-weight: 700;
+    color: var(--dark);
+  }
+
+  .section-sub {
+    font-size: 14px;
+    color: var(--muted);
+    max-width: 440px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+
+  /* Gallery slider */
+  .gallery-slider {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    overflow: hidden;
+    margin: 0 -48px;
+    padding: 0 48px;
+  }
+
+  .gallery-item {
+    flex-shrink: 0;
+    border-radius: var(--radius);
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s;
+  }
+
+  .gallery-item:hover img { transform: scale(1.04); }
+
+  .gallery-item.sm { width: 120px; height: 160px; }
+  .gallery-item.md { width: 170px; height: 200px; }
+  .gallery-item.lg { width: 210px; height: 230px; }
+  .gallery-item.xl { width: 260px; height: 200px; }
+  .gallery-item.featured {
+    width: 260px; height: 200px;
+  }
+
+  .gallery-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.65));
+    padding: 40px 14px 14px;
+    color: white;
+  }
+
+  .gallery-overlay h4 { font-size: 13px; font-weight: 600; margin-bottom: 3px; }
+  .gallery-overlay p { font-size: 11px; color: rgba(255,255,255,0.7); line-height: 1.4; }
+
+  .gallery-expand {
+    position: absolute;
+    top: 10px; right: 10px;
+    width: 24px; height: 24px;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(8px);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .gallery-expand svg { width: 10px; fill: white; }
+
+  .slider-nav {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 28px;
+  }
+
+  .slider-btn {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: 1.5px solid var(--border);
+    background: white;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  .slider-btn:hover { background: var(--dark); border-color: var(--dark); }
+  .slider-btn:hover svg { fill: white; }
+  .slider-btn svg { width: 14px; fill: var(--dark); transition: 0.2s; }
+
+  .slider-track {
+    flex: 1;
+    max-width: 120px;
+    height: 2px;
+    background: var(--border);
+    border-radius: 2px;
+    position: relative;
+  }
+
+  .slider-progress {
+    width: 40%;
+    height: 100%;
+    background: var(--dark);
+    border-radius: 2px;
+  }
+
+  /* ─────────────────── SECTION 3: Tour Packages ─────────────────── */
+  .packages-section {
+    padding: 80px 48px;
+  }
+
+  .packages-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .packages-header .section-title {
+    margin: 0 auto 14px;
+    max-width: 600px;
+    text-align: center;
+  }
+
+  .packages-header .section-title span { color: var(--dark); }
+
+  .packages-header .section-sub {
+    margin: 0 auto;
+    text-align: center;
+    max-width: 460px;
+  }
+
+  .packages-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 16px;
+  }
+
+  .pkg-featured {
+    grid-row: 1 / 3;
+    border-radius: var(--radius);
+    overflow: hidden;
+    position: relative;
+    background: url('https://images.unsplash.com/photo-1599421498111-9b5c4e0b0b46?w=600&q=80') center/cover no-repeat;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .pkg-featured::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 50%);
+  }
+
+  .pkg-featured-content {
+    position: relative;
+    z-index: 1;
+    padding: 28px;
+    color: white;
+  }
+
+  .pkg-featured-content h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+
+  .pkg-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
+
+  .pkg-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
+
+  .pkg-card-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+    background: #ccc;
+  }
+
+  .pkg-card-body {
+    padding: 16px 18px;
+  }
+
+  .pkg-card-body h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 4px;
+  }
+
+  .pkg-card-body p {
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+
+  .pkg-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .pkg-price {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--dark);
+  }
+
+  .pkg-price span {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--muted);
+    margin-left: 2px;
+  }
+
+  .btn-book-now {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--dark);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: 0.2s;
+  }
+
+  .btn-book-now:hover { background: #333; }
+  .btn-book-now svg { width: 10px; fill: white; }
+
+  /* ─────────────────── SECTION 4: Testimonials (Image 1 top) ─────────────────── */
+  .testimonials-section {
+    padding: 80px 48px 60px;
+    text-align: center;
+  }
+
+  .testimonials-section .section-badge { justify-content: center; }
+
+  .testimonials-section .section-title {
+    margin: 0 auto 10px;
+    text-align: center;
+    max-width: 560px;
+  }
+
+  .testimonials-section .section-sub {
+    margin: 0 auto 48px;
+    text-align: center;
+  }
+
+  .testi-photos {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+
+  .testi-photo-wrap {
+    text-align: center;
+  }
+
+  .testi-photo {
+    border-radius: 14px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 10px;
+  }
+
+  .testi-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .testi-photo-wrap:nth-child(1) .testi-photo { width: 110px; height: 140px; }
+  .testi-photo-wrap:nth-child(2) .testi-photo { width: 110px; height: 150px; }
+  .testi-photo-wrap:nth-child(3) .testi-photo { width: 130px; height: 170px; margin-top: -10px; }
+  .testi-photo-wrap:nth-child(4) .testi-photo { width: 110px; height: 150px; }
+  .testi-photo-wrap:nth-child(5) .testi-photo { width: 110px; height: 140px; }
+
+  .testi-stars {
+    display: flex;
+    gap: 2px;
+    justify-content: flex-start;
+    margin-bottom: 4px;
+  }
+
+  .testi-stars svg { width: 12px; fill: var(--amber); }
+
+  .testi-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--dark);
+    text-align: left;
+    margin-bottom: 2px;
+  }
+
+  .testi-comment {
+    font-size: 10.5px;
+    color: var(--muted);
+    text-align: left;
+    line-height: 1.4;
+    max-width: 130px;
+  }
+
+  /* ─────────────────── SECTION 5: How to Book ─────────────────── */
+  .how-section {
+    padding: 80px 48px;
+  }
+
+  .how-section .section-title {
+    font-size: 52px;
+    max-width: none;
+    margin-bottom: 40px;
+  }
+
+  .how-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1.5px solid var(--border);
+    margin-bottom: 40px;
+  }
+
+  .how-tab {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12.5px;
+    color: var(--muted);
+    padding: 10px 20px 10px 0;
+    cursor: pointer;
+    transition: 0.2s;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1.5px;
+  }
+
+  .how-tab:hover { color: var(--dark); }
+  .how-tab svg { width: 12px; fill: var(--muted); }
+
+  .how-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+
+  .how-img-wrap {
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    height: 380px;
+  }
+
+  .how-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .how-img-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(12px);
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .how-img-caption p {
+    font-size: 12.5px;
+    color: var(--dark);
+    font-weight: 500;
+    line-height: 1.4;
+    max-width: 200px;
+  }
+
+  .how-img-caption .btn-sm {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--dark);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .how-img-caption .btn-sm .circle {
+    width: 16px; height: 16px;
+    background: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .how-img-caption .btn-sm .circle svg { width: 7px; fill: var(--dark); }
+
+  .how-steps-wrap h3 {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 400;
+    margin-bottom: 6px;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  .how-steps-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 28px;
+  }
+
+  .steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px 20px;
+    border-radius: 12px;
+    border: 1.5px solid transparent;
+    transition: 0.2s;
+  }
+
+  .step-item.active {
+    background: var(--light-bg);
+    border-color: var(--border);
+  }
+
+  .step-num {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    border: 1.5px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: var(--muted);
+    flex-shrink: 0;
+    font-weight: 500;
+  }
+
+  .step-item.active .step-num {
+    background: var(--dark);
+    border-color: var(--dark);
+    color: white;
+  }
+
+  .step-body h4 { font-size: 14px; font-weight: 600; color: var(--dark); margin-bottom: 3px; }
+  .step-body p { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+  /* ─────────────────── SECTION 6: CTA Banner ─────────────────── */
+  .cta-section {
+    margin: 0 48px 80px;
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    min-height: 340px;
+    background: url('https://images.unsplash.com/photo-1528181304800-259b08848526?w=1400&q=80') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(20,20,20,0.65) 0%, rgba(40,30,10,0.5) 100%);
+  }
+
+  .cta-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 60px 40px;
+    color: white;
+  }
+
+  .cta-content h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 14px;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-content p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.75);
+    max-width: 460px;
+    margin: 0 auto 30px;
+    line-height: 1.7;
+  }
+
+  .btn-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    color: var(--dark);
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.2s;
+  }
+
+  .btn-cta:hover { background: #f0f0f0; }
+
+  .btn-cta .circle {
+    width: 24px; height: 24px;
+    background: var(--dark);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .btn-cta .circle svg { width: 10px; fill: white; }
+
+  /* ─────────────────── FOOTER ─────────────────── */
+  footer {
+    padding: 60px 48px 40px;
+    border-top: 1.5px solid var(--border);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr 1fr 1.4fr;
+    gap: 40px;
+    margin-bottom: 48px;
+  }
+
+  .footer-brand .logo-dark {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--dark);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 14px;
+  }
+
+  .footer-brand .logo-dark .logo-icon-dark {
+    width: 28px; height: 28px;
+    background: var(--dark);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer-brand .logo-dark .logo-icon-dark svg { width: 12px; fill: white; }
+
+  .footer-brand p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 240px;
+  }
+
+  .footer-col h5 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 16px;
+  }
+
+  .footer-col ul { list-style: none; }
+
+  .footer-col ul li {
+    margin-bottom: 10px;
+  }
+
+  .footer-col ul li a {
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    transition: 0.2s;
+  }
+
+  .footer-col ul li a:hover { color: var(--dark); }
+
+  .footer-contact p {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .footer-newsletter h5 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 14px;
+  }
+
+  .subscribe-form {
+    display: flex;
+    gap: 8px;
+  }
+
+  .subscribe-form input {
+    flex: 1;
+    padding: 10px 16px;
+    border: 1.5px solid var(--border);
+    border-radius: 50px;
+    font-size: 13px;
+    color: var(--dark);
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    transition: 0.2s;
+  }
+
+  .subscribe-form input:focus { border-color: var(--dark); }
+  .subscribe-form input::placeholder { color: var(--muted); }
+
+  .subscribe-form button {
+    background: var(--dark);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: 0.2s;
+  }
+
+  .subscribe-form button:hover { background: #333; }
+
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 28px;
+    border-top: 1.5px solid var(--border);
+  }
+
+  .footer-bottom p {
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+
+  .social-links {
+    display: flex;
+    gap: 12px;
+  }
+
+  .social-links a {
+    width: 32px; height: 32px;
+    border: 1.5px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: 0.2s;
+  }
+
+  .social-links a:hover { border-color: var(--dark); background: var(--dark); }
+  .social-links a:hover svg { fill: white; }
+  .social-links a svg { width: 13px; fill: var(--muted); transition: 0.2s; }
+
+  /* Placeholder images using gradient */
+  .img-placeholder {
+    background: linear-gradient(135deg, #c8b89a 0%, #a0856a 100%);
+    display: block;
+  }
+
+  .img-p1 { background: linear-gradient(135deg, #8a7060 0%, #c4a882 100%); }
+  .img-p2 { background: linear-gradient(135deg, #e8a055 0%, #c07030 100%); }
+  .img-p3 { background: linear-gradient(135deg, #5a7890 0%, #3a5a70 100%); }
+  .img-p4 { background: linear-gradient(135deg, #708060 0%, #506040 100%); }
+  .img-p5 { background: linear-gradient(135deg, #906050 0%, #703040 100%); }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ PAGE 2: HERO + UPPER SECTIONS ═══════════════ -->
+
+<!-- HERO SECTION -->
+<div style="background:#f5f4f0; padding: 0; margin: 0;">
+  <section class="hero">
+    <!-- Navbar -->
+    <nav class="navbar">
+      <a href="#" class="logo">
+        <span class="logo-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L4 8v14h16V8L12 2zm0 2.5l6 4.5v11H6V9l6-4.5z"/></svg>
+        </span>
+        BromoRise
+      </a>
+
+      <div class="nav-links">
+        <a href="#" class="active">Home</a>
+        <a href="#">Packages</a>
+        <a href="#">Gallery</a>
+        <a href="#">How it works</a>
+        <a href="#">Contact</a>
+      </div>
+
+      <div class="nav-book">
+        <a href="#" class="btn-book-nav">
+          Book now
+          <span class="arrow-circle">
+            <svg viewBox="0 0 10 10"><path d="M2 5h6M5 2l3 3-3 3"/></svg>
+          </span>
+        </a>
+      </div>
+    </nav>
+
+    <!-- Hero text -->
+    <div class="hero-content">
+      <div class="hero-badge">
+        <svg viewBox="0 0 16 16"><path d="M8 0L9.8 5.6H16L11.1 9.1L12.9 14.7L8 11.2L3.1 14.7L4.9 9.1L0 5.6H6.2L8 0Z"/></svg>
+        East Java's Natural Wonder
+      </div>
+      <h1>Unforgettable Mount Bromo<br>Sunrise Experience</h1>
+    </div>
+
+    <!-- Left floating card -->
+    <div class="hero-left-card">
+      <div class="avatars">
+        <div class="avatar"></div>
+        <div class="avatar"></div>
+        <div class="avatar"></div>
+      </div>
+      <div class="name">Private Jeered</div>
+      <div class="desc">Travel through volcanic landscapes, golden dunes and timeless beauty with expertly guided Mount Bromo tours.</div>
+      <a href="#" class="btn-book-hero">
+        Book Now
+        <span class="circle">
+          <svg viewBox="0 0 10 10"><path d="M2 5h6M5 2l3 3-3 3"/></svg>
+        </span>
+      </a>
+    </div>
+
+    <!-- Right floating cards -->
+    <div class="hero-cards">
+      <!-- Main card -->
+      <div class="hero-card hero-card-main">
+        <div class="card-img"></div>
+        <div class="card-info">
+          <div class="card-tag">Active Volcano Walk</div>
+          <p>Stand on the edge of an active caldera and witness the raw power of nature.</p>
+        </div>
+      </div>
+
+      <!-- Side cards -->
+      <div class="hero-side-cards">
+        <div class="hero-side-card">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#c8a070,#906040);"></div>
+          <div class="hero-side-card-label">Sea of Sand</div>
+        </div>
+        <div class="hero-side-card">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#608090,#304060);"></div>
+          <div class="hero-side-card-label">Sunrise Trek</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════ SECTION: Unforgettable Moments ═══════════════ -->
+<section class="section">
+  <div class="section-badge">
+    <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 2a.5.5 0 01.5.5v5h5a.5.5 0 010 1h-5v5a.5.5 0 01-1 0v-5h-5a.5.5 0 010-1h5v-5A.5.5 0 018 2z"/></svg>
+    Pure Adventure
+    <svg viewBox="0 0 16 16" fill="currentColor" style="width:12px;"><path d="M7 7V2a1 1 0 012 0v5h5a1 1 0 010 2H9v5a1 1 0 01-2 0V9H2a1 1 0 010-2h5z"/></svg>
+  </div>
+  <h2 class="section-title"><em>Unforgettable</em> Moments in the<br>Heart of Mount Bromo</h2>
+  <p class="section-sub">Experience breathtaking sunrises, explore volcanic landscapes, and create memories at one of Indonesia's most iconic destinations.</p>
+
+  <!-- Gallery -->
+  <div class="gallery-slider">
+    <div class="gallery-item sm">
+      <div style="width:120px;height:160px;background:linear-gradient(160deg,#7a9068,#4a6048);"></div>
+    </div>
+    <div class="gallery-item md">
+      <div style="width:170px;height:200px;background:linear-gradient(160deg,#b0a090,#706050);"></div>
+    </div>
+    <div class="gallery-item lg featured" style="width:260px;height:220px;">
+      <div style="width:260px;height:220px;background:linear-gradient(160deg,#e0a860,#a07040);"></div>
+      <div class="gallery-overlay">
+        <h4>Sea of Sand Exploration</h4>
+        <p>Cross the vast volcanic sand sea by jeep or on foot.</p>
+      </div>
+      <div class="gallery-expand">
+        <svg viewBox="0 0 10 10"><path d="M1 1h4M1 1v4M9 9H5M9 9V5" stroke="white" stroke-width="1.5" fill="none"/></svg>
+      </div>
+    </div>
+    <div class="gallery-item xl" style="width:210px;height:220px;">
+      <div style="width:210px;height:220px;background:linear-gradient(160deg,#c0b8a0,#807060);"></div>
+    </div>
+    <div class="gallery-item sm" style="width:130px;height:180px;">
+      <div style="width:130px;height:180px;background:linear-gradient(160deg,#d0885a,#904030);"></div>
+    </div>
+  </div>
+
+  <div class="slider-nav">
+    <button class="slider-btn">
+      <svg viewBox="0 0 10 10"><path d="M7 1L3 5l4 4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+    </button>
+    <div class="slider-track"><div class="slider-progress"></div></div>
+    <button class="slider-btn">
+      <svg viewBox="0 0 10 10"><path d="M3 1l4 4-4 4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+    </button>
+  </div>
+</section>
+
+<!-- ═══════════════ SECTION: Tour Packages ═══════════════ -->
+<section class="packages-section">
+  <div class="packages-header">
+    <div class="section-badge" style="justify-content:center; display:inline-flex; margin-bottom:14px;">
+      <svg viewBox="0 0 16 16" fill="currentColor" style="width:12px;"><path d="M8 0L9.8 5.6H16L11.1 9.1L12.9 14.7L8 11.2L3.1 14.7L4.9 9.1L0 5.6H6.2L8 0Z"/></svg>
+      &nbsp; Bromo Tours &nbsp;
+      <svg viewBox="0 0 16 16" fill="currentColor" style="width:12px;"><path d="M7 7V2a1 1 0 012 0v5h5a1 1 0 010 2H9v5a1 1 0 01-2 0V9H2a1 1 0 010-2h5z"/></svg>
+    </div>
+    <h2 class="section-title" style="text-align:center; margin:0 auto 14px;">Discover the Best Bromo Adventures<br>for Every Kind of Traveler</h2>
+    <p class="section-sub" style="text-align:center; margin:0 auto;">Carefully crafted tour packages for every traveler whether you're chasing sunrise views, volcanic trails, or night-sky magic.</p>
+  </div>
+
+  <div class="packages-grid">
+    <!-- Featured left -->
+    <div class="pkg-featured">
+      <div class="pkg-featured-content">
+        <h3>Discover the<br>Untamed<br>Beauty of Bromo</h3>
+      </div>
+    </div>
+
+    <!-- Top right cards -->
+    <div class="pkg-card">
+      <div class="pkg-card-img img-p2"></div>
+      <div class="pkg-card-body">
+        <h4>Sunrise Explorer</h4>
+        <p>Experience Mount Bromo's iconic sunrise with a smooth guided tour.</p>
+        <div class="pkg-footer">
+          <div class="pkg-price">$39<span>/ person</span></div>
+          <a href="#" class="btn-book-now">Book Now <svg viewBox="0 0 10 10"><path d="M3 1l4 4-4 4" stroke="white" stroke-width="1.5" fill="none"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pkg-card">
+      <div class="pkg-card-img img-p3"></div>
+      <div class="pkg-card-body">
+        <h4>Adventure Trail</h4>
+        <p>Go deeper into Bromo with crater hikes and off-road jeep exploration.</p>
+        <div class="pkg-footer">
+          <div class="pkg-price">$69<span>/ person</span></div>
+          <a href="#" class="btn-book-now">Book Now <svg viewBox="0 0 10 10"><path d="M3 1l4 4-4 4" stroke="white" stroke-width="1.5" fill="none"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pkg-card">
+      <div class="pkg-card-img img-p4"></div>
+      <div class="pkg-card-body">
+        <h4>Night &amp; Stars Escape</h4>
+        <p>A premium night-to-sunrise experience for stargazers and photographers.</p>
+        <div class="pkg-footer">
+          <div class="pkg-price">$109<span>/ person</span></div>
+          <a href="#" class="btn-book-now">Book Now <svg viewBox="0 0 10 10"><path d="M3 1l4 4-4 4" stroke="white" stroke-width="1.5" fill="none"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pkg-card">
+      <div class="pkg-card-img img-p5"></div>
+      <div class="pkg-card-body">
+        <h4>Private Bromo Journey</h4>
+        <p>A fully personalized Bromo adventure with private transport and guide.</p>
+        <div class="pkg-footer">
+          <div class="pkg-price">$149<span>/ person</span></div>
+          <a href="#" class="btn-book-now">Book Now <svg viewBox="0 0 10 10"><path d="M3 1l4 4-4 4" stroke="white" stroke-width="1.5" fill="none"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PAGE 1: TESTIMONIALS ═══════════════ -->
+<section class="testimonials-section">
+  <div class="section-badge">
+    <svg viewBox="0 0 16 16" fill="currentColor" style="width:12px;"><path d="M8 0L9.8 5.6H16L11.1 9.1L12.9 14.7L8 11.2L3.1 14.7L4.9 9.1L0 5.6H6.2L8 0Z"/></svg>
+    &nbsp; Captured Memories &nbsp;
+    <svg viewBox="0 0 16 16" fill="currentColor" style="width:12px;"><path d="M7 7V2a1 1 0 012 0v5h5a1 1 0 010 2H9v5a1 1 0 01-2 0V9H2a1 1 0 010-2h5z"/></svg>
+  </div>
+  <h2 class="section-title">Capture Your Mount Bromo<br>Journey Forever</h2>
+  <p class="section-sub">Relive every sunrise, trail, and volcanic moment with professional photo and video documentation crafted to preserve your adventure beautifully.</p>
+
+  <div class="testi-photos">
+    <!-- Photo 1 -->
+    <div class="testi-photo-wrap">
+      <div class="testi-photo">
+        <div style="width:110px;height:140px;background:linear-gradient(160deg,#8a7a68,#4a3a28);"></div>
+      </div>
+      <div class="testi-stars">
+        <svg viewBox="0 0 10 10"><path d="M5 0L6.1 3.5H10L7 5.7L8.1 9.2L5 7L1.9 9.2L3 5.7L0 3.5H3.9L5 0Z"/></svg>
+        <svg viewBox="0 0 10 10"><path d="M5 0L6.1 3.5H10L7 5.7L8.1 9.2L5 7L1.9 9.2L3 5.7L0 3.5H3.9L5 0Z"/></svg>
+        <svg viewBox="0 0 10 10"><path d="M5 0L6.1 3.5H10L7 5.7L8.1 9.2L5 7L1.9 9.2L3 5.7L0 3.5H3.9L5 0Z"/></svg>
+        <svg viewBox="0 0 10 10"><path d="M5 0L6.1 3.5H10L7 5.7L8.1 9.2L5 7L1.9 9.2L3 5.7L0 3.5H3.9L5 0Z"/></svg>
+        <svg viewBox="0 0 10 10"><path d="M5 0L6.1 3.5H10L7 5.7L8.1 9.2L5 7L1.9 9.2L3 5.7L0 3.5H3.9L5 0Z"/></svg>
+      </div>
+      <div class="testi-name">Ki Putri</div>
+      <div class="testi-comment">A breathtaking Sunrise day! the mountains had us absolutely stunned.</div>
+    </div>
+
+    <!-- Photo 2 -->
+    <div class="testi-photo-wrap">
+      <div class="testi-photo">
+        <div style="width:110px;height:150px;background:linear-gradient(160deg,#d0a860,#906020);"></div>
+      </div>
+      <div class="testi-stars">
+        <svg viewBox="0 0 10 10"><path d="M5 0L6.1 3.5H10L7 5.7L8.1 9.2L5 7L1.9 9.2L3 5.7L0 3.5H3.9L5 0Z"/></svg>
+        <svg viewBox="0 0 10 10"><path d="M5 0L6.1 3.5H10L7 5.7L8.1 9.2L5 7L1.9 9.2L3 5.7L0 3.5H3.9L5 0Z"/></svg>
+        <svg viewBox="0 0 10 10"><path d="M5 0L6.1 3.5H10L7 5.7L8.1 9.2L5 7L1.9 9.2L3 5.7L0 3.5H3.9L5 0Z"/></svg>
+        <svg viewBox="0 0 10 10"><path d="M5 0L6.1 3.5H10L7 5.7L8.1 9.2L5 7L1.9 9.2L3 5.7L0 3.5H3.9L5 0Z"/></svg>
+        <svg viewBox="0 0 10 10"><path d="M5 0L6.1 3.5H10L7 5.7L8.1 9.2L5 7L1.9 9.2L3 5.7L0 3.5H3.9L5 0Z"/></svg>
+      </div>
+      <div class="testi-name">Ahmad Fauzi</div>
+      <div class="testi-comment">Inspiring service and guides were very helpful. Highly recommended!</div>
+    </div>
+
+    <!-- Photo 3 (center/featured) -->
+    <div class="testi-photo-wrap">
+      <div class="testi-photo">
+        <div style="width:130px;height:170px;background:linear-gradient(160deg,#e8c088,#c09050);"></div>
+      </div>
+      <div class="testi-stars">
+        <svg viewBox="0 0 10 10"><path d="M5 0L6.1 3.5H10L7 5.7L8.1 9.2L5 7L1.9 9.2L3 5.7L0 3.5H3.9L5 0Z"/></svg>
+        <svg viewBox="0 0 10 10"><path d="M5 0L6.1 3.5H10L7 5.7L8.1 9.2L5 7L1.9 9.2L3 5.7L0 3.5H3.9L5 0Z"/></svg>
+        <svg viewBox="0 0 10 10"><path d="M5 0L6.1 3.5H10L7 5.7L8.1 9.2L5 7L1.9 9.2L3 5.7L0 3.5H3.9L5 0Z"/></svg>
+        <svg viewBox="0 0 10 10"><path d="M5 0L6.1 3.5H10L7 5.7L8.1 9.2L5 7L1.9 9.2L3 5.7L0 3.5H3.9L5 0Z"/></svg>
+        <svg viewBox="0 0 10 10"><path d="M5 0L6.1 3.5H10L7 5.7L8.1 9.2L5 7L1.9 9.2L3 5.7L0 3.5H3.9L5 0Z"/></svg>
+      </div>
+      <div class="testi-name">Alya Rahman</div>
+      <div class="testi-comment">Truly amazing service and amazing guides. Truly unforgettable.</div>
+    </div>
+
+    <!-- Photo 4 -->
+    <div class="testi-photo-wrap">
+      <div class="testi-photo">
+        <div style="width:110px;height:150px;background:linear-gradient(160deg,#a0b8c8,#607080);"></div>
+      </div>
+      <div class="testi-stars">
+        <svg viewBox="0 0 10 10"><path d="M5 0L6.1 3.5H10L7 5.7L8.1 9.2L5 7L1.9 9.2L3 5.7L0 3.5H3.9L5 0Z"/></svg>
+        <svg viewBox="0 0 10 10"><path d="M5 0L6.1 3.5H10L7 5.7L8.1 9.2L5 7L1.9 9.2L3 5.7L0 3.5H3.9L5 0Z"/></svg>
+        <svg viewBox="0 0 10 10"><path d="M5 0L6.1 3.5H10L7 5.7L8.1 9.2L5 7L1.9 9.2L3 5.7L0 3.5H3.9L5 0Z"/></svg>
+        <svg viewBox="0 0 10 10"><path d="M5 0L6.1 3.5H10L7 5.7L8.1 9.2L5 7L1.9 9.2L3 5.7L0 3.5H3.9L5 0Z"/></svg>
+        <svg viewBox="0 0 10 10"><path d="M5 0L6.1 3.5H10L7 5.7L8.1 9.2L5 7L1.9 9.2L3 5.7L0 3.5H3.9L5 0Z"/></svg>
+      </div>
+      <div class="testi-name">Risky Adhiya</div>
+      <div class="testi-comment">Professional guides and stunning views. Great every moment!</div>
+    </div>
+
+    <!-- Photo 5 -->
+    <div class="testi-photo-wrap">
+      <div class="testi-photo">
+        <div style="width:110px;height:140px;background:linear-gradient(160deg,#b8a898,#807060);"></div>
+      </div>
+      <div class="testi-stars">
+        <svg viewBox="0 0 10 10"><path d="M5 0L6.1 3.5H10L7 5.7L8.1 9.2L5 7L1.9 9.2L3 5.7L0 3.5H3.9L5 0Z"/></svg>
+        <svg viewBox="0 0 10 10"><path d="M5 0L6.1 3.5H10L7 5.7L8.1 9.2L5 7L1.9 9.2L3 5.7L0 3.5H3.9L5 0Z"/></svg>
+        <svg viewBox="0 0 10 10"><path d="M5 0L6.1 3.5H10L7 5.7L8.1 9.2L5 7L1.9 9.2L3 5.7L0 3.5H3.9L5 0Z"/></svg>
+        <svg viewBox="0 0 10 10"><path d="M5 0L6.1 3.5H10L7 5.7L8.1 9.2L5 7L1.9 9.2L3 5.7L0 3.5H3.9L5 0Z"/></svg>
+        <svg viewBox="0 0 10 10"><path d="M5 0L6.1 3.5H10L7 5.7L8.1 9.2L5 7L1.9 9.2L3 5.7L0 3.5H3.9L5 0Z"/></svg>
+      </div>
+      <div class="testi-name">Sari Nurhaliza</div>
+      <div class="testi-comment">Truly my most magical Summit in my visit!</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ SECTION: How to Book ═══════════════ -->
+<section class="how-section">
+  <h2 class="section-title" style="font-size:52px; max-width:none; margin-bottom:30px; font-family:'Poppins',sans-serif; font-weight:700;">How to Book Your Tour</h2>
+
+  <div class="how-tabs">
+    <div class="how-tab">
+      <svg viewBox="0 0 12 12" fill="currentColor"><path d="M6 0l1.5 4.5H12L8.5 7.3l1.4 4.2L6 9l-3.9 2.5 1.4-4.2L0 4.5h4.5L6 0z"/></svg>
+      Exploration
+    </div>
+    <div class="how-tab">
+      <svg viewBox="0 0 12 12" fill="currentColor"><path d="M6 0l1.5 4.5H12L8.5 7.3l1.4 4.2L6 9l-3.9 2.5 1.4-4.2L0 4.5h4.5L6 0z"/></svg>
+      Sunrise Explorer
+    </div>
+    <div class="how-tab">
+      <svg viewBox="0 0 12 12" fill="currentColor"><path d="M6 0l1.5 4.5H12L8.5 7.3l1.4 4.2L6 9l-3.9 2.5 1.4-4.2L0 4.5h4.5L6 0z"/></svg>
+      Tour Guide
+    </div>
+    <div class="how-tab">
+      <svg viewBox="0 0 12 12" fill="currentColor"><path d="M6 0l1.5 4.5H12L8.5 7.3l1.4 4.2L6 9l-3.9 2.5 1.4-4.2L0 4.5h4.5L6 0z"/></svg>
+      Adventure
+    </div>
+    <div class="how-tab">
+      <svg viewBox="0 0 12 12" fill="currentColor"><path d="M6 0l1.5 4.5H12L8.5 7.3l1.4 4.2L6 9l-3.9 2.5 1.4-4.2L0 4.5h4.5L6 0z"/></svg>
+      Sunrise Viewing
+    </div>
+    <div class="how-tab">
+      <svg viewBox="0 0 12 12" fill="currentColor"><path d="M6 0l1.5 4.5H12L8.5 7.3l1.4 4.2L6 9l-3.9 2.5 1.4-4.2L0 4.5h4.5L6 0z"/></svg>
+      Private Bromo
+    </div>
+  </div>
+
+  <div class="how-content">
+    <div class="how-img-wrap">
+      <div style="width:100%;height:100%;background:linear-gradient(160deg,#a0b0c0,#4a6070);"></div>
+      <div class="how-img-caption">
+        <p>Plan your Mount Bromo adventure in minutes with our simple, secure system.</p>
+        <a href="#" class="btn-sm">
+          Book Now
+          <span class="circle">
+            <svg viewBox="0 0 10 10"><path d="M3 1l4 4-4 4" stroke="#1a1a1a" stroke-width="1.5" fill="none"/></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <div class="how-steps-wrap">
+      <h3>How it works</h3>
+      <div class="how-steps-title">Book Tour in 4 Easy Steps</div>
+
+      <div class="steps-list">
+        <div class="step-item active">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h4>Choose a Package</h4>
+            <p>Select the tour that best fits your schedule and travel style.</p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h4>Check Availability</h4>
+            <p>Pick your preferred date and group size.</p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h4>Make a Reservation</h4>
+            <p>Confirm your booking securely online in minutes.</p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h4>Enjoy the Experience</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ CTA BANNER ═══════════════ -->
+<div class="cta-section">
+  <div class="cta-content">
+    <h2>Experience the Magic of<br>Mount Bromo Today</h2>
+    <p>Discover breathtaking views, volcanic landscapes, and unforgettable moments in one of Indonesia's most iconic destinations.</p>
+    <a href="#" class="btn-cta">
+      Reserve Your Tour Now
+      <span class="circle">
+        <svg viewBox="0 0 10 10"><path d="M3 1l4 4-4 4" stroke="white" stroke-width="1.5" fill="none"/></svg>
+      </span>
+    </a>
+  </div>
+</div>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="logo-dark">
+        <span class="logo-icon-dark">
+          <svg viewBox="0 0 24 24"><path d="M12 2L4 8v14h16V8L12 2zm0 2.5l6 4.5v11H6V9l6-4.5z"/></svg>
+        </span>
+        BromoRise
+      </a>
+      <p>We provide curated Mount Bromo travel experiences with expert local guides, safe transportation, and unforgettable scenic moments.</p>
+    </div>
+
+    <div class="footer-col">
+      <h5>Quick Links</h5>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Packages</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">How it works</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col footer-contact">
+      <h5>Contact Info</h5>
+      <p>hello@bromorise.com</p>
+      <p>+62 812 XXXX XXX</p>
+      <p>East Java, Indonesia</p>
+    </div>
+
+    <div class="footer-newsletter">
+      <h5>Enter your email address</h5>
+      <div class="subscribe-form">
+        <input type="email" placeholder="your@email.com">
+        <button>Subscribe</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 BromoRise. All rights reserved.</p>
+    <div class="social-links">
+      <!-- Instagram -->
+      <a href="#">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </a>
+      <!-- Facebook -->
+      <a href="#">
+        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </a>
+      <!-- TikTok -->
+      <a href="#">
+        <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V9.01a8.16 8.16 0 004.77 1.52V7.07a4.85 4.85 0 01-1-.38z"/></svg>
+      </a>
+      <!-- X/Twitter -->
+      <a href="#">
+        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

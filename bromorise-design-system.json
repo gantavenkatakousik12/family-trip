@@ -1,0 +1,394 @@
+{
+  "designSystem": {
+    "projectName": "BromoRise",
+    "version": "1.0.0",
+    "description": "Design system for the BromoRise Mount Bromo travel website",
+
+    "typography": {
+      "fontFamily": {
+        "primary": "Poppins",
+        "fallback": "sans-serif",
+        "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap"
+      },
+      "fontWeights": {
+        "light": 300,
+        "regular": 400,
+        "medium": 500,
+        "semibold": 600,
+        "bold": 700,
+        "extrabold": 800
+      },
+      "scale": {
+        "xs": "10px",
+        "sm": "11px",
+        "base": "12px",
+        "md": "13px",
+        "lg": "14px",
+        "xl": "15px",
+        "2xl": "16px",
+        "3xl": "26px",
+        "4xl": "42px",
+        "5xl": "44px",
+        "6xl": "52px"
+      },
+      "lineHeights": {
+        "tight": 1.1,
+        "snug": 1.15,
+        "normal": 1.4,
+        "relaxed": 1.5,
+        "loose": 1.7
+      },
+      "roles": {
+        "heroHeading": { "size": "52px", "weight": 700, "lineHeight": 1.1, "color": "#ffffff" },
+        "sectionHeading": { "size": "42px", "weight": 700, "lineHeight": 1.15, "color": "#1a1a1a" },
+        "ctaHeading": { "size": "44px", "weight": 700, "lineHeight": 1.15, "color": "#ffffff" },
+        "largeHeading": { "size": "52px", "weight": 700, "lineHeight": 1.1, "color": "#1a1a1a" },
+        "cardHeading": { "size": "26px", "weight": 700, "lineHeight": 1.2, "color": "#1a1a1a" },
+        "cardTitle": { "size": "15px", "weight": 600, "lineHeight": 1.4, "color": "#1a1a1a" },
+        "stepsTitle": { "size": "26px", "weight": 700, "lineHeight": 1.3, "color": "#1a1a1a" },
+        "body": { "size": "14px", "weight": 400, "lineHeight": 1.7, "color": "#777777" },
+        "bodySmall": { "size": "12.5px", "weight": 400, "lineHeight": 1.5, "color": "#777777" },
+        "caption": { "size": "11px", "weight": 400, "lineHeight": 1.4, "color": "rgba(255,255,255,0.7)" },
+        "label": { "size": "12px", "weight": 500, "lineHeight": 1.3, "color": "#777777" },
+        "navLink": { "size": "13px", "weight": 400, "lineHeight": 1, "color": "rgba(255,255,255,0.85)" },
+        "badge": { "size": "12px", "weight": 400, "lineHeight": 1, "color": "#777777" },
+        "price": { "size": "16px", "weight": 700, "lineHeight": 1, "color": "#1a1a1a" }
+      }
+    },
+
+    "colors": {
+      "brand": {
+        "dark": "#1a1a1a",
+        "darkHover": "#333333"
+      },
+      "neutral": {
+        "text": "#333333",
+        "muted": "#777777",
+        "lightBg": "#f9f8f6",
+        "white": "#ffffff",
+        "border": "#e8e5e0"
+      },
+      "overlay": {
+        "heroGradient": "linear-gradient(to bottom, rgba(20,30,40,0.3) 0%, rgba(10,20,30,0.55) 100%)",
+        "cardGlass": "rgba(255,255,255,0.15)",
+        "cardGlassBorder": "rgba(255,255,255,0.25)",
+        "ctaOverlay": "linear-gradient(135deg, rgba(20,20,20,0.65) 0%, rgba(40,30,10,0.5) 100%)",
+        "pkgFeaturedGradient": "linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 50%)",
+        "galleryOverlay": "linear-gradient(transparent, rgba(0,0,0,0.65))"
+      },
+      "placeholder": {
+        "warm1": "linear-gradient(160deg, #8a7a68, #4a3a28)",
+        "warm2": "linear-gradient(160deg, #d0a860, #906020)",
+        "warm3": "linear-gradient(160deg, #e8c088, #c09050)",
+        "cool1": "linear-gradient(160deg, #a0b8c8, #607080)",
+        "neutral1": "linear-gradient(160deg, #b8a898, #807060)",
+        "green1": "linear-gradient(160deg, #7a9068, #4a6048)",
+        "blue1": "linear-gradient(160deg, #5a7890, #3a5a70)",
+        "orange1": "linear-gradient(160deg, #e0a860, #a07040)"
+      }
+    },
+
+    "spacing": {
+      "xs": "4px",
+      "sm": "8px",
+      "md": "12px",
+      "lg": "16px",
+      "xl": "20px",
+      "2xl": "28px",
+      "3xl": "40px",
+      "4xl": "48px",
+      "5xl": "60px",
+      "6xl": "80px",
+      "section": "80px 48px"
+    },
+
+    "borderRadius": {
+      "sm": "10px",
+      "md": "12px",
+      "lg": "14px",
+      "xl": "16px",
+      "2xl": "20px",
+      "3xl": "24px",
+      "full": "50px",
+      "circle": "50%"
+    },
+
+    "shadows": {
+      "cardHover": "0 8px 32px rgba(0,0,0,0.08)",
+      "none": "none"
+    },
+
+    "effects": {
+      "backdropBlur": {
+        "sm": "blur(8px)",
+        "md": "blur(12px)",
+        "lg": "blur(16px)"
+      },
+      "transitions": {
+        "default": "all 0.2s",
+        "transform": "transform 0.4s"
+      }
+    },
+
+    "components": {
+      "navbar": {
+        "position": "absolute",
+        "padding": "20px 48px",
+        "layout": "flex space-between",
+        "background": "transparent",
+        "navLinks": {
+          "background": "rgba(255,255,255,0.15)",
+          "backdropFilter": "blur(12px)",
+          "border": "1px solid rgba(255,255,255,0.25)",
+          "borderRadius": "50px",
+          "padding": "6px 8px",
+          "activeItem": {
+            "background": "rgba(255,255,255,0.25)",
+            "borderRadius": "50px"
+          }
+        },
+        "bookButton": {
+          "background": "#ffffff",
+          "color": "#1a1a1a",
+          "padding": "9px 20px",
+          "borderRadius": "50px",
+          "iconCircle": { "background": "#1a1a1a", "size": "22px" }
+        }
+      },
+
+      "hero": {
+        "height": "580px",
+        "borderRadius": "24px",
+        "margin": "16px",
+        "backgroundSize": "cover",
+        "backgroundPosition": "center",
+        "overlay": "linear-gradient(to bottom, rgba(20,30,40,0.3) 0%, rgba(10,20,30,0.55) 100%)",
+        "badge": {
+          "background": "rgba(255,255,255,0.1)",
+          "border": "1px solid rgba(255,255,255,0.2)",
+          "padding": "5px 12px",
+          "borderRadius": "50px"
+        },
+        "floatingCard": {
+          "background": "rgba(255,255,255,0.12)",
+          "backdropFilter": "blur(16px)",
+          "border": "1px solid rgba(255,255,255,0.2)",
+          "borderRadius": "14px",
+          "padding": "12px 16px"
+        }
+      },
+
+      "sectionBadge": {
+        "fontSize": "12px",
+        "color": "#777777",
+        "display": "inline-flex",
+        "alignItems": "center",
+        "gap": "6px",
+        "marginBottom": "14px"
+      },
+
+      "gallerySlider": {
+        "layout": "flex horizontal",
+        "gap": "16px",
+        "overflow": "hidden",
+        "itemSizes": {
+          "sm": { "width": "120px", "height": "160px" },
+          "md": { "width": "170px", "height": "200px" },
+          "lg": { "width": "210px", "height": "230px" },
+          "xl": { "width": "260px", "height": "200px" },
+          "featured": { "width": "260px", "height": "220px" }
+        },
+        "borderRadius": "16px",
+        "overlayGradient": "linear-gradient(transparent, rgba(0,0,0,0.65))",
+        "expandButton": {
+          "size": "24px",
+          "background": "rgba(255,255,255,0.2)",
+          "backdropFilter": "blur(8px)",
+          "borderRadius": "50%",
+          "position": "top-right: 10px"
+        }
+      },
+
+      "sliderNav": {
+        "button": {
+          "size": "36px",
+          "border": "1.5px solid #e8e5e0",
+          "borderRadius": "50%",
+          "background": "#ffffff",
+          "hoverBackground": "#1a1a1a"
+        },
+        "track": {
+          "width": "120px",
+          "height": "2px",
+          "background": "#e8e5e0",
+          "progress": { "width": "40%", "background": "#1a1a1a" }
+        }
+      },
+
+      "packageCard": {
+        "border": "1.5px solid #e8e5e0",
+        "borderRadius": "16px",
+        "imageHeight": "150px",
+        "padding": "16px 18px",
+        "hoverShadow": "0 8px 32px rgba(0,0,0,0.08)",
+        "priceStyle": { "fontSize": "16px", "fontWeight": 700, "color": "#1a1a1a" },
+        "bookButton": {
+          "background": "#1a1a1a",
+          "color": "#ffffff",
+          "padding": "8px 14px",
+          "borderRadius": "50px",
+          "fontSize": "12px"
+        }
+      },
+
+      "packageFeatured": {
+        "gridSpan": "1 column, 2 rows",
+        "minHeight": "420px",
+        "borderRadius": "16px",
+        "overlay": "linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 50%)",
+        "textColor": "#ffffff"
+      },
+
+      "testimonialCard": {
+        "imageRadii": { "default": "14px" },
+        "staggeredHeights": ["140px", "150px", "170px", "150px", "140px"],
+        "starColor": "#f5a623",
+        "starSize": "12px",
+        "nameSize": "12px",
+        "nameWeight": 600,
+        "commentSize": "10.5px",
+        "maxCommentWidth": "130px"
+      },
+
+      "howToBook": {
+        "tabs": {
+          "fontSize": "12.5px",
+          "color": "#777777",
+          "gap": "0",
+          "borderBottom": "1.5px solid #e8e5e0",
+          "activeIndicator": "2px solid #1a1a1a"
+        },
+        "imageWrap": {
+          "borderRadius": "20px",
+          "height": "380px",
+          "captionCard": {
+            "background": "rgba(255,255,255,0.9)",
+            "backdropFilter": "blur(12px)",
+            "borderRadius": "12px",
+            "position": "bottom: 20px, left: 20px, right: 20px",
+            "padding": "14px 16px"
+          }
+        },
+        "stepItem": {
+          "padding": "16px 20px",
+          "borderRadius": "12px",
+          "activeBackground": "#f9f8f6",
+          "activeBorder": "1.5px solid #e8e5e0",
+          "stepNumber": {
+            "size": "28px",
+            "borderRadius": "50%",
+            "border": "1.5px solid #e8e5e0",
+            "activeBackground": "#1a1a1a",
+            "activeColor": "#ffffff"
+          }
+        }
+      },
+
+      "ctaBanner": {
+        "margin": "0 48px 80px",
+        "borderRadius": "24px",
+        "minHeight": "340px",
+        "backgroundSize": "cover",
+        "backgroundPosition": "center",
+        "overlay": "linear-gradient(135deg, rgba(20,20,20,0.65) 0%, rgba(40,30,10,0.5) 100%)",
+        "textAlign": "center",
+        "button": {
+          "background": "#ffffff",
+          "color": "#1a1a1a",
+          "padding": "12px 24px",
+          "borderRadius": "50px",
+          "iconCircle": { "background": "#1a1a1a", "size": "24px" }
+        }
+      },
+
+      "footer": {
+        "padding": "60px 48px 40px",
+        "borderTop": "1.5px solid #e8e5e0",
+        "gridColumns": "1.8fr 1fr 1fr 1.4fr",
+        "gap": "40px",
+        "subscribeForm": {
+          "inputBorder": "1.5px solid #e8e5e0",
+          "inputBorderRadius": "50px",
+          "buttonBackground": "#1a1a1a",
+          "buttonBorderRadius": "50px"
+        },
+        "socialIcon": {
+          "size": "32px",
+          "border": "1.5px solid #e8e5e0",
+          "borderRadius": "50%",
+          "hoverBackground": "#1a1a1a"
+        }
+      }
+    },
+
+    "layout": {
+      "maxWidth": "100%",
+      "containerPadding": "0 48px",
+      "sectionPadding": "80px 48px",
+      "heroMargin": "16px",
+      "grids": {
+        "packagesGrid": {
+          "columns": "1fr 1fr 1fr",
+          "rows": "auto auto",
+          "gap": "16px"
+        },
+        "footerGrid": {
+          "columns": "1.8fr 1fr 1fr 1.4fr",
+          "gap": "40px"
+        },
+        "howToBookGrid": {
+          "columns": "1fr 1fr",
+          "gap": "40px"
+        }
+      }
+    },
+
+    "sections": [
+      {
+        "id": "hero",
+        "name": "Hero / Landing",
+        "description": "Full-bleed hero with navbar, headline, left floating profile card, right floating photo cards"
+      },
+      {
+        "id": "moments",
+        "name": "Unforgettable Moments",
+        "description": "Section badge, heading, subtext, horizontal gallery slider with navigation arrows and progress track"
+      },
+      {
+        "id": "packages",
+        "name": "Tour Packages",
+        "description": "Centered header, 3-column grid with large featured card on left spanning 2 rows, 4 tour package cards on right"
+      },
+      {
+        "id": "testimonials",
+        "name": "Captured Memories / Testimonials",
+        "description": "Centered section heading, 5 staggered photo cards with star ratings, reviewer names and comments"
+      },
+      {
+        "id": "how-to-book",
+        "name": "How to Book Your Tour",
+        "description": "Large heading, tabbed navigation, 2-column layout with image+caption on left, 4-step process on right"
+      },
+      {
+        "id": "cta",
+        "name": "CTA Banner",
+        "description": "Rounded full-bleed image with dark overlay, centered heading, subtext and CTA button"
+      },
+      {
+        "id": "footer",
+        "name": "Footer",
+        "description": "4-column grid: brand+description, quick links, contact info, email subscribe. Bottom bar with copyright and social icons"
+      }
+    ]
+  }
+}
