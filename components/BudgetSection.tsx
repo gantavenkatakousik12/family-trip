@@ -1,15 +1,15 @@
 "use client";
 
 const BUDGET_3 = [
-  { item: "Vijayawada → Delhi (3AC, AP Express)", cost: "₹3,600–₹4,500" },
-  { item: "Delhi → Varanasi (Shiv Ganga, 3AC)", cost: "₹2,400–₹3,300" },
+  { item: "Vijayawada → Delhi (Flight, IndiGo/Air India, 2h45m) × 3", cost: "₹15,000–₹30,000" },
+  { item: "Delhi → Varanasi (Shiv Ganga Express, 3AC overnight)", cost: "₹2,400–₹3,300" },
   { item: "Varanasi Hotel (2 nights × ₹1,500)", cost: "₹3,000" },
   { item: "Varanasi activities (boat, entry, guide)", cost: "₹2,000" },
-  { item: "Varanasi → Ayodhya (private cab)", cost: "₹2,500" },
+  { item: "Varanasi → Ayodhya (private cab, ~5 hrs)", cost: "₹2,500" },
   { item: "Ayodhya Hotel (1 night)", cost: "₹1,000" },
   { item: "Ayodhya activities & local transport", cost: "₹1,500" },
-  { item: "Ayodhya → Delhi (train, 3AC)", cost: "₹2,100–₹2,700" },
-  { item: "Delhi → Vijayawada (3AC return)", cost: "₹3,600–₹4,500" },
+  { item: "Ayodhya → Delhi (cab/bus/train, ~6 hrs)", cost: "₹2,100–₹3,000" },
+  { item: "Delhi → Vijayawada (Return Flight) × 3", cost: "₹15,000–₹30,000" },
   { item: "Food (7 days × ₹200/person/day × 3)", cost: "₹4,200" },
   { item: "Miscellaneous (autos, tips, shopping)", cost: "₹3,000" },
 ];
@@ -114,6 +114,7 @@ export default function BudgetSection() {
             display: "grid",
             gridTemplateColumns: "1fr",
             gap: "24px",
+            maxWidth: "720px",
           }}
           className="md:grid-cols-2"
         >
@@ -208,7 +209,7 @@ export default function BudgetSection() {
                   color: "#f0a030",
                 }}
               >
-                ₹28,900–₹31,700
+                ₹51,700–₹83,500
               </span>
             </div>
           </div>
@@ -241,12 +242,7 @@ export default function BudgetSection() {
                   margin: 0,
                 }}
               >
-                The ₹80K–₹90K estimate in the plan is for{" "}
-                <strong style={{ color: "rgba(255,255,255,0.9)" }}>
-                  flights + 2AC/1AC + hotels
-                </strong>
-                . With 3AC trains + budget stays, 3 members can comfortably do this trip in{" "}
-                <strong style={{ color: "#f0a030" }}>₹30,000–₹40,000</strong>.
+                Includes flights (Vijayawada ↔ Delhi, IndiGo/Air India). Book 4–6 weeks early for best fares. Add Agra day trip → +₹3,000–₹5,000.
               </p>
             </div>
 

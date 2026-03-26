@@ -6,6 +6,7 @@ export type Location = {
   name: string;
   coordinates: { lat: number; lng: number };
   map_link: string;
+  images?: string[];
 };
 
 export type LocationsData = {
@@ -13,7 +14,7 @@ export type LocationsData = {
   ayodhya: Location[];
   delhi: Location[];
   agra_optional: Location[];
-  transport_nodes: Location[];
+  transport_nodes?: Location[];
 };
 
 export const locations: LocationsData = imagesPinsRaw as LocationsData;

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 const NAV_LINKS = [
   { label: "Itinerary", href: "#itinerary" },
@@ -41,27 +42,23 @@ export default function Navbar() {
             width: 38,
             height: 38,
             borderRadius: "50%",
-            background: "rgba(255,255,255,0.15)",
+            background: "rgba(255,255,255,0.1)",
             backdropFilter: "blur(12px)",
-            border: "1px solid rgba(255,255,255,0.3)",
+            border: "1px solid rgba(255,255,255,0.2)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             flexShrink: 0,
+            overflow: "hidden",
           }}
         >
-          {/* Temple / Om icon */}
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-            <path
-              d="M12 2 L9 6 H4 V8 H20 V6 H15 L12 2Z"
-              fill="rgba(255,200,100,0.9)"
-            />
-            <path
-              d="M6 8 V20 H10 V14 H14 V20 H18 V8"
-              fill="rgba(255,200,100,0.9)"
-            />
-            <rect x="10" y="8" width="4" height="4" fill="rgba(255,240,180,0.7)" />
-          </svg>
+          <Image
+            src="/logo/image.png"
+            alt="Varanasi Logo"
+            width={32}
+            height={32}
+            style={{ objectFit: "contain" }}
+          />
         </div>
         <div>
           <div
@@ -76,7 +73,7 @@ export default function Navbar() {
             GVK Family Trips
           </div>
           <div style={{ color: "rgba(255,255,255,0.5)", fontSize: "11px" }}>
-            North India Pilgrimage
+            Family Yatra 2026
           </div>
         </div>
       </a>

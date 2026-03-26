@@ -59,6 +59,7 @@ function LocationCard({
 }) {
   const color = cityColors[city] ?? "#777777";
   const gradient = cityGradients[city] ?? "linear-gradient(135deg,#333,#555)";
+  const imgSrc = location.images?.[0];
 
   return (
     <div
@@ -69,68 +70,98 @@ function LocationCard({
         background: "white",
         transition: "all 0.2s",
         boxShadow: "0 2px 8px rgba(0,0,0,0.03)",
+        display: "flex",
+        flexDirection: "column",
       }}
       onMouseEnter={(e) =>
-        (e.currentTarget.style.boxShadow = "0 8px 32px rgba(0,0,0,0.08)")
+        (e.currentTarget.style.boxShadow = "0 8px 32px rgba(0,0,0,0.10)")
       }
       onMouseLeave={(e) =>
         (e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,0.03)")
       }
     >
-      {/* Color gradient placeholder */}
-      <div
+      {/* Image area */}
+      <a
+        href={location.map_link}
+        target="_blank"
+        rel="noopener noreferrer"
         style={{
-          height: "110px",
-          background: gradient,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
+          display: "block",
           position: "relative",
+          height: "150px",
+          flexShrink: 0,
+          overflow: "hidden",
+          background: gradient,
+          textDecoration: "none",
         }}
       >
-        {/* Subtle dot pattern */}
+        {imgSrc && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={imgSrc}
+            alt={location.name}
+            loading="lazy"
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              display: "block",
+              transition: "transform 0.4s",
+            }}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.transform = "scale(1.05)")
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.transform = "scale(1)")
+            }
+            onError={(e) => {
+              e.currentTarget.style.display = "none";
+            }}
+          />
+        )}
+        {/* Map pin overlay */}
         <div
-          aria-hidden="true"
           style={{
             position: "absolute",
             inset: 0,
-            backgroundImage:
-              "radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px)",
-            backgroundSize: "20px 20px",
-          }}
-        />
-        <div
-          style={{
-            width: 44,
-            height: 44,
-            borderRadius: "12px",
-            background: "rgba(255,255,255,0.12)",
-            border: "1px solid rgba(255,255,255,0.2)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            position: "relative",
-            zIndex: 1,
+            background: imgSrc ? "rgba(0,0,0,0.22)" : "rgba(0,0,0,0.1)",
+            transition: "background 0.2s",
           }}
         >
-          <MapPinIcon />
+          <div
+            style={{
+              width: 40,
+              height: 40,
+              borderRadius: "50%",
+              background: "rgba(255,255,255,0.85)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              boxShadow: "0 4px 16px rgba(0,0,0,0.25)",
+            }}
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M12 2C8.134 2 5 5.134 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.866-3.134-7-7-7z"
+                fill={color}
+              />
+              <circle cx="12" cy="9" r="2.5" fill="white" />
+            </svg>
+          </div>
         </div>
-        <div
-          style={{
-            color: "rgba(255,255,255,0.5)",
-          }}
-        />
-      </div>
+      </a>
 
       {/* Card body */}
-      <div style={{ padding: "14px 16px" }}>
+      <div style={{ padding: "14px 16px 16px", flex: 1, display: "flex", flexDirection: "column", gap: "8px" }}>
         <div
           style={{
             fontSize: "13px",
             fontWeight: 600,
             color: "#1a1a1a",
             lineHeight: 1.3,
-            marginBottom: "6px",
           }}
         >
           {location.name}
@@ -139,7 +170,6 @@ function LocationCard({
           style={{
             fontSize: "11px",
             color: "#aaaaaa",
-            marginBottom: "12px",
             fontFamily: "monospace",
           }}
         >
@@ -162,6 +192,8 @@ function LocationCard({
             borderRadius: "50px",
             padding: "6px 12px",
             transition: "all 0.15s",
+            marginTop: "auto",
+            alignSelf: "flex-start",
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.background = `${color}22`;
@@ -315,8 +347,8 @@ export default function LocationExplorer() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
-            gap: "14px",
+            gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
+            gap: "16px",
           }}
         >
           {cityLocs.map((loc) => (
@@ -373,7 +405,7 @@ export default function LocationExplorer() {
                 gap: "8px",
               }}
             >
-              {locations.transport_nodes.map((node) => (
+              {(locations.transport_nodes ?? []).map((node) => (
                 <a
                   key={node.name}
                   href={node.map_link}

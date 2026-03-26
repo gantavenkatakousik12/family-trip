@@ -41,3 +41,49 @@ body {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* ── Mobile responsive overrides ────────────────────────────── */
+@media (max-width: 640px) {
+  /* Sections: reduce padding */
+  section {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* Hero content: tighter top padding */
+  .hero-content {
+    padding-top: 90px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* Budget grid: single column */
+  .md\:grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Itinerary day selector: smaller cards */
+  button[style*="width: 80px"] {
+    width: 64px !important;
+    padding: 10px 6px !important;
+  }
+
+  /* Day detail header padding */
+  div[style*="padding: 24px 28px"] {
+    padding: 18px 16px !important;
+  }
+
+  /* Activities / tab content padding */
+  div[style*="padding: 0 28px"] {
+    padding: 0 16px !important;
+  }
+
+  div[style*="padding: 16px 28px"] {
+    padding: 14px 16px !important;
+  }
+
+  /* Transport nodes callout */
+  div[style*="linear-gradient(135deg, #0a1828"] {
+    padding: 18px 16px !important;
+  }
+}

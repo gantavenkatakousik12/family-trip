@@ -14,9 +14,9 @@ export default function Home() {
         <Hero />
       </div>
       <Itinerary />
+      <BudgetSection />
       <LocationExplorer />
       <VideoSection />
-      <BudgetSection />
       <Footer />
     </main>
   );

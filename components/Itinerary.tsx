@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { itinerary, type ItineraryDay, type Activity } from "../data/trip-data";
+import { itinerary, locations, cityColors, type ItineraryDay, type Activity, type Location } from "../data/trip-data";
 
 function CityIcon({ city }: { city: string }) {
   if (city === "train") {
@@ -188,9 +188,104 @@ function DayCard({
   );
 }
 
+// Map day city → locations key
+function getLocationsForCity(city: string): Location[] {
+  if (city === "varanasi") return locations.varanasi ?? [];
+  if (city === "ayodhya") return locations.ayodhya ?? [];
+  if (city === "delhi") return locations.delhi ?? [];
+  return [];
+}
+
+function PlaceCard({ loc, accentColor }: { loc: Location; accentColor: string }) {
+  const imgSrc = loc.images?.[0];
+  return (
+    <a
+      href={loc.map_link}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{
+        display: "flex",
+        gap: "12px",
+        alignItems: "center",
+        padding: "10px",
+        borderRadius: "12px",
+        border: "1.5px solid #f0ede8",
+        background: "#faf9f7",
+        textDecoration: "none",
+        transition: "all 0.15s",
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.background = "#f5f3f0";
+        e.currentTarget.style.borderColor = accentColor + "44";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.background = "#faf9f7";
+        e.currentTarget.style.borderColor = "#f0ede8";
+      }}
+    >
+      {/* Thumbnail */}
+      <div
+        style={{
+          width: 56,
+          height: 56,
+          borderRadius: "8px",
+          overflow: "hidden",
+          flexShrink: 0,
+          background: "linear-gradient(135deg,#3a1e05,#6a3a0a)",
+        }}
+      >
+        {imgSrc && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={imgSrc}
+            alt={loc.name}
+            loading="lazy"
+            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+            onError={(e) => { e.currentTarget.style.display = "none"; }}
+          />
+        )}
+      </div>
+      {/* Info */}
+      <div style={{ flex: 1, minWidth: 0 }}>
+        <div
+          style={{
+            fontSize: "13px",
+            fontWeight: 600,
+            color: "#1a1a1a",
+            lineHeight: 1.3,
+            marginBottom: "3px",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            whiteSpace: "nowrap",
+          }}
+        >
+          {loc.name}
+        </div>
+        <div
+          style={{
+            fontSize: "11px",
+            color: accentColor,
+            fontWeight: 500,
+            display: "flex",
+            alignItems: "center",
+            gap: "4px",
+          }}
+        >
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none">
+            <path d="M7 17L17 7M17 7H7M17 7v10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          Open Maps
+        </div>
+      </div>
+    </a>
+  );
+}
+
 export default function Itinerary() {
   const [selectedDay, setSelectedDay] = useState(0);
+  const [activeTab, setActiveTab] = useState<"places" | "journey">("places");
   const day = itinerary[selectedDay];
+  const dayPlaces = getLocationsForCity(day.city);
 
   return (
     <section
@@ -261,7 +356,7 @@ export default function Itinerary() {
               key={d.day}
               day={d}
               isSelected={i === selectedDay}
-              onClick={() => setSelectedDay(i)}
+              onClick={() => { setSelectedDay(i); setActiveTab("places"); }}
             />
           ))}
         </div>
@@ -368,12 +463,77 @@ export default function Itinerary() {
             </div>
           </div>
 
-          {/* Activities */}
-          <div style={{ padding: "0 28px 8px" }}>
-            {day.activities.map((activity, i) => (
-              <ActivityRow key={i} activity={activity} />
-            ))}
+          {/* Tabs */}
+          <div
+            style={{
+              display: "flex",
+              gap: "4px",
+              padding: "16px 28px 0",
+              borderBottom: "1.5px solid #f0ede8",
+            }}
+          >
+            {(["places", "journey"] as const).map((tab) => {
+              const isActive = activeTab === tab;
+              return (
+                <button
+                  key={tab}
+                  onClick={() => setActiveTab(tab)}
+                  style={{
+                    padding: "8px 18px",
+                    borderRadius: "8px 8px 0 0",
+                    border: "none",
+                    background: isActive ? "white" : "transparent",
+                    color: isActive ? day.accentColor : "#777777",
+                    fontSize: "13px",
+                    fontWeight: isActive ? 600 : 400,
+                    cursor: "pointer",
+                    transition: "all 0.15s",
+                    position: "relative",
+                    bottom: isActive ? "-1.5px" : "0",
+                    borderBottom: isActive ? `2px solid ${day.accentColor}` : "2px solid transparent",
+                  }}
+                >
+                  {tab === "places" ? "Places" : "Journey"}
+                </button>
+              );
+            })}
           </div>
+
+          {/* Tab content */}
+          {activeTab === "journey" ? (
+            <div style={{ padding: "0 28px 8px" }}>
+              {day.activities.map((activity, i) => (
+                <ActivityRow key={i} activity={activity} />
+              ))}
+            </div>
+          ) : (
+            <div style={{ padding: "16px 28px 8px" }}>
+              {dayPlaces.length > 0 ? (
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
+                    gap: "10px",
+                  }}
+                >
+                  {dayPlaces.map((loc) => (
+                    <PlaceCard key={loc.name} loc={loc} accentColor={day.accentColor} />
+                  ))}
+                </div>
+              ) : (
+                <div
+                  style={{
+                    padding: "32px 0",
+                    textAlign: "center",
+                    color: "#aaaaaa",
+                    fontSize: "13px",
+                  }}
+                >
+                  No specific place pins for this day — see the Journey tab for activities.
+                </div>
+              )}
+            </div>
+          )}
 
           {/* Footer nav */}
           <div
